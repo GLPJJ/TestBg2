@@ -10,7 +10,6 @@
         android:theme="@style/AppTheme.Day.Translucent">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.Day.NoneTranslucent"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,11 +19,10 @@
         </activity>
         <activity
             android:name=".Main2Activity"
+            android:theme="@style/AppTheme.Day.NoneTranslucent"
             />
-        <activity
-            android:name=".Main3Activity"
-            >
-        </activity>
+        <activity android:name=".Main3Activity"></activity>
+        <activity android:name=".Main4Activity"></activity>
     </application>
 
 </manifest>
