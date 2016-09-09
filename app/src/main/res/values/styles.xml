@@ -15,7 +15,7 @@
         <item name="android:windowBackground">@android:color/white</item>
     </style>
 
-    <style name="AppTheme.Base" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppTheme.Day.Translucent" parent="Theme.AppCompat.Light.NoActionBar">
         <!--<item name="windowActionBar">false</item>-->
         <!--<item name="windowNoTitle">true</item>-->
         <!--&lt;!&ndash;   your app's branding color (for the app bar) &ndash;&gt;-->
@@ -26,8 +26,17 @@
         <!--<item name="colorAccent">@color/colorAccent</item>-->
         <!--<item name="android:windowNoTitle">true</item>-->
         <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowContentOverlay">@android:color/transparent</item>
-        <item name="android:windowBackground">@android:color/white</item>
+        <!--<item name="android:windowContentOverlay">@android:color/transparent</item>-->
+        <!--<item name="android:windowBackground">@android:color/white</item>-->
+    </style>
+    <style name="AppTheme.Day.NoneTranslucent" parent="AppTheme.Day.Translucent">
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+
+    <style name="AppTheme.Night.Translucent" parent="Theme.AppCompat.DayNight.NoActionBar">
+    </style>
+    <style name="AppTheme.Night.NoneTranslucent" parent="AppTheme.Night.Translucent">
+        <item name="android:windowIsTranslucent">false</item>
     </style>
 
     <!-- Base application theme. -->
