@@ -1,14 +1,10 @@
-package com.example.glp.testbg2;
+package com.example.administrator.testbg;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.netease.nim.uikit.base.BaseAppCompatActivity;
-import com.netease.nim.uikit.base.BaseSwipeBackActivity;
-
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseMyActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +14,10 @@ public class MainActivity extends BaseActivity {
         setSwipeBackEnable(false);
     }
 
+    public void onGo(View v) {
+        startActivity(new Intent(this, Main2Activity.class));
+    }
+
     @Override
     protected boolean toggleOverridePendingTransition() {
         return false;
@@ -25,10 +25,6 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected TransitionMode getOverridePendingTransitionMode() {
-        return TransitionMode.NONE;
-    }
-
-    public void onGo(View v){
-        startActivity(new Intent(this,Main2Activity.class));
+        return TransitionMode.BOTTOM;
     }
 }

@@ -1,10 +1,10 @@
-package com.example.glp.testbg2;
+package com.example.administrator.testbg;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class Main2Activity extends BaseActivity {
+public class Main2Activity extends BaseMyActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

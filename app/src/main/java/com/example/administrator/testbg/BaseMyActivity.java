@@ -1,16 +1,11 @@
-package com.example.glp.testbg2;
-
-import android.os.Bundle;
+package com.example.administrator.testbg;
 
 import com.netease.nim.uikit.base.BaseSwipeBackActivity;
 
-public class BaseActivity extends BaseSwipeBackActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
+/**
+ * Created by Administrator on 2016/9/9.
+ */
+public class BaseMyActivity extends BaseSwipeBackActivity {
     @Override
     protected boolean toggleOverridePendingTransition() {
         return true;
@@ -20,5 +15,4 @@ public class BaseActivity extends BaseSwipeBackActivity {
     protected TransitionMode getOverridePendingTransitionMode() {
         return TransitionMode.RIGHT;
     }
-
 }
