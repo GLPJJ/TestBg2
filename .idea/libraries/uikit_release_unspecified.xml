@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="uikit-release-unspecified">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Testbg2/uikit-release/unspecified/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Testbg2/uikit-release/unspecified/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Testbg2/uikit-release/unspecified/jars/libs/nrtc-sdk.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Testbg2/uikit-release/unspecified/jars/libs/universal-image-loader-1.9.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Testbg2/uikit-release/unspecified/jars/libs/fastjson-1.1.34.android.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Testbg2/uikit-release/unspecified/jars/libs/nim-sdk-2.4.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Testbg2/uikit-release/unspecified/jars/libs/cosinesdk.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
