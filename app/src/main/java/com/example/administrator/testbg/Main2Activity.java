@@ -20,11 +20,11 @@ public class Main2Activity extends BaseMyActivity {
 
     @Override
     protected boolean toggleOverridePendingTransition() {
-        return false;
+        return true;
     }
 
     @Override
     protected TransitionMode getOverridePendingTransitionMode() {
-        return TransitionMode.FADE;
+        return TransitionMode.NONE;
     }
 }

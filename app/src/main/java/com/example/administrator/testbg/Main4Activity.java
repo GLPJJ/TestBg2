@@ -2,8 +2,6 @@ package com.example.administrator.testbg;
 
 import android.os.Bundle;
 
-import com.netease.nim.uikit.base.BaseAppCompatActivity;
-
 //分页2
 public class Main4Activity extends BaseMyActivity {
 
@@ -16,7 +14,7 @@ public class Main4Activity extends BaseMyActivity {
     }
 
     @Override
-    protected BaseAppCompatActivity.TransitionMode getOverridePendingTransitionMode() {
-        return BaseAppCompatActivity.TransitionMode.BOTTOM;
+    protected TransitionMode getOverridePendingTransitionMode() {
+        return TransitionMode.BOTTOM;
     }
 }
