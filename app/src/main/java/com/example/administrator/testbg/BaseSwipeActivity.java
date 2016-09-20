@@ -15,7 +15,7 @@ import me.imid.swipebacklayout.lib.app.SwipeBackActivityHelper;
  * Created by glp on 2016/9/10.
  */
 
-public abstract class BaseMy2Activity extends AppCompatActivity implements SwipeBackActivityBase {
+public abstract class BaseSwipeActivity extends AppCompatActivity implements SwipeBackActivityBase {
 
     private SwipeBackActivityHelper mHelper;
 

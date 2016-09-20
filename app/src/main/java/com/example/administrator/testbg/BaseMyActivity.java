@@ -3,7 +3,7 @@ package com.example.administrator.testbg;
 /**
  * Created by Administrator on 2016/9/9.
  */
-public class BaseMyActivity extends BaseMy2Activity {
+public class BaseMyActivity extends BaseSwipeActivity {
     @Override
     protected boolean toggleOverridePendingTransition() {
         return true;

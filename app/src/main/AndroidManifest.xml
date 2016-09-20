@@ -10,6 +10,7 @@
         android:theme="@style/AppTheme.Day.Translucent">
         <activity
             android:name=".MainActivity"
+            android:theme="@style/AppTheme.Day.Translucent.Welcome"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +20,8 @@
         </activity>
         <activity
             android:name=".Main2Activity"
-            android:theme="@style/AppTheme.Day.NoneTranslucent"
+            android:theme="@style/AppTheme.Day.NoneTranslucent.Main"
+            android:windowSoftInputMode="stateHidden"
             />
         <activity android:name=".Main3Activity"></activity>
         <activity android:name=".Main4Activity"></activity>

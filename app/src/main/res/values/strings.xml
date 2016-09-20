@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">TestBg</string>
+    <string name="app_name">TestBg2</string>
+    <string name="text_sample">样式字符串</string>
 </resources>

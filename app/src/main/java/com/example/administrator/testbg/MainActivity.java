@@ -3,6 +3,7 @@ package com.example.administrator.testbg;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 
 //启动页
 public class MainActivity extends BaseMyActivity {
@@ -39,11 +40,19 @@ public class MainActivity extends BaseMyActivity {
 
     @Override
     protected boolean toggleOverridePendingTransition() {
-        return mActivie;
+        return false;
     }
 
     @Override
     protected TransitionMode getOverridePendingTransitionMode() {
         return TransitionMode.FADE;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0)
+            return true;
+
+        return super.onKeyDown(keyCode, event);
     }
 }

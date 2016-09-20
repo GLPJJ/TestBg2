@@ -10,7 +10,7 @@ public class Main4Activity extends BaseMyActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
 
-        //setSwipeBackEnable(false);
+        setSwipeBackEnable(false);
     }
 
     @Override
