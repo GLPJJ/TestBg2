@@ -18,12 +18,11 @@
         >
 
         <TextView
-            android:text="TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:id="@+id/textView"
-            tools:text="@string/text_sample"
+            android:text="@string/text_sample"
             android:gravity="center"
             />
 

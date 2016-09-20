@@ -22,7 +22,7 @@
     </style>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light">
+    <style name="AppThemeDay" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -30,11 +30,15 @@
         <item name="android:windowBackground">@android:color/white</item>
     </style>
 
-    <style name="AppTheme.Day" >
-
+    <style name="AppThemeNight" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@android:color/white</item>
     </style>
 
-    <style name="AppTheme.Day.Translucent">
+    <style name="AppThemeDay.Translucent">
         <!--<item name="windowActionBar">false</item>-->
         <!--<item name="windowNoTitle">true</item>-->
         <!--&lt;!&ndash;   your app's branding color (for the app bar) &ndash;&gt;-->
@@ -49,7 +53,7 @@
     </style>
 
     <!--欢迎页，或者广告页，不区分白天晚上。-->
-    <style name="AppTheme.Day.Translucent.Welcome">
+    <style name="AppThemeDay.Translucent.Welcome">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowEnterAnimation">@null</item>
         <item name="android:windowExitAnimation">@null</item>
@@ -59,82 +63,35 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.Day.NoneTranslucent">
+    <style name="AppThemeDay.NoneTranslucent">
         <item name="android:windowIsTranslucent">false</item>
     </style>
 
-    <style name="AppTheme.Day.NoneTranslucent.Main">
-        <item name="android:windowEnterAnimation">@null</item>
-        <item name="android:windowExitAnimation">@null</item>
-        <item name="android:windowAnimationStyle">@style/NoAnimation</item>
-    </style>
-
-    <style name="AppTheme.Night">
-
-    </style>
-
-    <style name="AppTheme.Night.Translucent">
-        <item name="android:windowIsTranslucent">true</item>
-    </style>
-
-    <style name="AppTheme.Night.NoneTranslucent">
-        <item name="android:windowIsTranslucent">false</item>
-    </style>
-
-    <style name="AppTheme.Night.NoneTranslucent.Main">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowEnterAnimation">@null</item>
-        <item name="android:windowExitAnimation">@null</item>
-        <item name="android:windowAnimationStyle">@style/NoAnimation</item>
-    </style>
-
-    <style name="AppThemeNoBar" parent="AppTheme">
+    <style name="AppThemeDay.NoneActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppThemeNoBar.Day" >
-
-    </style>
-
-    <style name="AppThemeNoBar.Day.Translucent">
-        <!--<item name="windowActionBar">false</item>-->
-        <!--<item name="windowNoTitle">true</item>-->
-        <!--&lt;!&ndash;   your app's branding color (for the app bar) &ndash;&gt;-->
-        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
-        <!--&lt;!&ndash;   darker variant of colorPrimary (for status bar, contextual app bars) &ndash;&gt;-->
-        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-        <!--&lt;!&ndash;   theme UI controls like checkboxes and text fields &ndash;&gt;-->
-        <!--<item name="colorAccent">@color/colorAccent</item>-->
-        <!--<item name="android:windowNoTitle">true</item>-->
-        <item name="android:windowIsTranslucent">true</item>
-        <!--<item name="android:windowContentOverlay">@android:color/transparent</item>-->
-    </style>
-
-    <style name="AppThemeNoBar.Day.NoneTranslucent">
-        <item name="android:windowIsTranslucent">false</item>
-    </style>
-
-    <style name="AppThemeNoBar.Day.NoneTranslucent.Main">
-        <item name="android:windowBackground">@android:color/transparent</item>
+    <style name="AppThemeDay.NoneTranslucent.Main">
         <item name="android:windowEnterAnimation">@null</item>
         <item name="android:windowExitAnimation">@null</item>
         <item name="android:windowAnimationStyle">@style/NoAnimation</item>
     </style>
 
-    <style name="AppThemeNoBar.Night">
-
-    </style>
-
-    <style name="AppThemeNoBar.Night.Translucent">
+    <style name="AppThemeNight.Translucent">
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
-    <style name="AppThemeNoBar.Night.NoneTranslucent">
+    <style name="AppThemeNight.NoneTranslucent">
         <item name="android:windowIsTranslucent">false</item>
     </style>
 
-    <style name="AppThemeNoBar.Night.NoneTranslucent.Main">
+    <style name="AppThemeNight.NoneActionBar" >
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppThemeNight.NoneTranslucent.Main">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowEnterAnimation">@null</item>
         <item name="android:windowExitAnimation">@null</item>
