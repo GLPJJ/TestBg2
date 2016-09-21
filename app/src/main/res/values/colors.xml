@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#06166a</color>
+    <!--文字禁用时时的半透明颜色-->
+    <item name="disabled_alpha_material_day" format="float" type="dimen">0.26</item>
+    <item name="disabled_alpha_material_night" format="float" type="dimen">0.30</item>
+
+    <color name="colorPrimary">#5ece62</color>
     <color name="colorPrimaryDark">#162bac</color>
     <color name="colorAccent">#c7a807</color>
 
-    <color name="color_880088">#880088</color>
-    <color name="color_008888">#008888</color>
-    <color name="color_888800">#888800</color>
-    <color name="light_black_bar">#dc000000</color>
-    <color name="bar_text">#866d00</color>
-    <color name="bar_day_color">#7d88ce</color>
-    <color name="bar_background">#0a1551</color>
+    <color name="primary_text_color_day">#544504</color>
+    <color name="primary_text_color_night">#544504</color>
+    <color name="windowBackground_day">#c83a3a</color>
+    <color name="background_material_day">#eba6a6</color>
+
+    <color name="list_item_bg_press">#80000000</color>
+    <color name="list_item_bg_normal">#4c000000</color>
 </resources>

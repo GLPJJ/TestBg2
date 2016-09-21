@@ -21,16 +21,25 @@
         <item name="android:taskToBackExitAnimation">@null</item>
     </style>
 
+    <!--<style name="MyBtnStyle">-->
+        <!--<item name="android:background">@drawable/select_btn</item>-->
+        <!--<item name="android:textColor">@android:color/white</item>-->
+        <!--<item name="android:padding">10dp</item>-->
+    <!--</style>-->
+
     <!-- Base application theme. -->
-    <style name="AppThemeDay" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppThemeDay" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:textColorPrimary">@color/primary_text_material_day</item>
+        <item name="android:colorBackground">@color/background_material_day</item>
+        <!--<item name="android:buttonStyle">@style/MyBtnStyle</item>-->
+        <!--<item name="android:windowBackground">@android:color/white</item>-->
     </style>
 
-    <style name="AppThemeNight" parent="Theme.AppCompat.DayNight.DarkActionBar">
+    <style name="AppThemeNight" parent="Theme.AppCompat">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -92,7 +101,6 @@
     </style>
 
     <style name="AppThemeNight.NoneTranslucent.Main">
-        <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowEnterAnimation">@null</item>
         <item name="android:windowExitAnimation">@null</item>
         <item name="android:windowAnimationStyle">@style/NoAnimation</item>
