@@ -1,1 +1,3 @@
+println "settings.gradle"
+
 include ':app'

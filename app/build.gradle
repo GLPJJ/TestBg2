@@ -1,10 +1,80 @@
 apply plugin: 'com.android.application'
 
+println "app"
+
+//com.android.application 插件默认执行task 任务顺序。
+//preBuild
+//preDebugBuild
+//checkDebugManifest
+//prepareDebugDependencies
+//compileDebugAidl
+//compileDebugRenderscript
+//generateDebugBuildConfig
+//generateDebugAssets
+//mergeDebugAssets
+//generateDebugResValues
+//generateDebugResources
+//mergeDebugResources
+//processDebugManifest
+//processDebugResources
+//generateDebugSources
+//compileDebugJavaWithJavac
+//compileDebugNdk
+//compileDebugSources
+//transformClassesWithDexForDebug
+//mergeDebugJniLibFolders
+//transformNative_libsWithMergeJniLibsForDebug
+//processDebugJavaRes
+//transformResourcesWithMergeJavaResForDebug
+//validateDebugSigning
+//packageDebug
+//zipalignDebug
+//assembleDebug
+
+task A {
+    println "app A" // 这里是初始化执行
+    doFirst { // 编译的时候先执行First 函数，然后执行 Last函数
+        println "app a first"
+    }
+    doLast {
+        println "app a last"
+    }
+    doFirst {
+        println "app a first 2" //编译存在多个First的时候，后面First 先执行
+    }
+}
+
+task B {
+    println "app B"
+    doFirst {
+        println "app b first"
+    }
+    doLast {
+        println "app b last"
+    }
+}
+
+task C {
+    println "app C"
+    doFirst {
+        println "app c first"
+    }
+    doLast {
+        println "app c last"
+    }
+}
+
+A.dependsOn B //依赖的先于自己执行
+B.dependsOn C
+
 android {
+    println "app android"
+
     compileSdkVersion 24
     buildToolsVersion '25.0.0'
 
     defaultConfig {
+        println "app defaultConfig"
         applicationId "com.example.administrator.testbg2"
         minSdkVersion 15
         targetSdkVersion 24
@@ -12,20 +82,27 @@ android {
         versionName "1.0"
     }
     buildTypes {
+        println "app buildTypes"
         release {
+            println "app release"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     dexOptions {
+        println "app dexOptions"
         incremental true
     }
 }
 
 dependencies {
+    println "app dependencies"
+
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'me.imid.swipebacklayout.lib:library:1.0.0'
 //    compile project(':uikit-release')
 }
+
+preBuild.dependsOn A

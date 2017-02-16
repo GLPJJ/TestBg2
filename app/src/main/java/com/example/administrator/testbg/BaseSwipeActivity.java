@@ -31,22 +31,22 @@ public abstract class BaseSwipeActivity extends AppCompatActivity implements Swi
         if (toggleOverridePendingTransition()) {
             switch (getOverridePendingTransitionMode()) {
                 case LEFT:
-                    overridePendingTransition(com.netease.nim.uikit.R.anim.left_in, com.netease.nim.uikit.R.anim.left_out);
+                    overridePendingTransition(R.anim.left_in, R.anim.left_out);
                     break;
                 case RIGHT:
-                    overridePendingTransition(com.netease.nim.uikit.R.anim.right_in, com.netease.nim.uikit.R.anim.right_out);
+                    overridePendingTransition(R.anim.right_in, R.anim.right_out);
                     break;
                 case TOP:
-                    overridePendingTransition(com.netease.nim.uikit.R.anim.top_in, com.netease.nim.uikit.R.anim.top_out);
+                    overridePendingTransition(R.anim.top_in, R.anim.top_out);
                     break;
                 case BOTTOM:
-                    overridePendingTransition(com.netease.nim.uikit.R.anim.bottom_in, com.netease.nim.uikit.R.anim.bottom_out);
+                    overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
                     break;
                 case SCALE:
-                    overridePendingTransition(com.netease.nim.uikit.R.anim.scale_in, com.netease.nim.uikit.R.anim.scale_out);
+                    overridePendingTransition(R.anim.scale_in, R.anim.scale_out);
                     break;
                 case FADE:
-                    overridePendingTransition(com.netease.nim.uikit.R.anim.fade_in, com.netease.nim.uikit.R.anim.fade_out);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     break;
             }
         }
@@ -106,22 +106,22 @@ public abstract class BaseSwipeActivity extends AppCompatActivity implements Swi
         if (toggleOverridePendingTransition()) {
             switch (getOverridePendingTransitionMode()) {
                 case LEFT:
-                    overridePendingTransition(com.netease.nim.uikit.R.anim.left_in, com.netease.nim.uikit.R.anim.left_out);
+                    overridePendingTransition(R.anim.left_in, R.anim.left_out);
                     break;
                 case RIGHT:
-                    overridePendingTransition(com.netease.nim.uikit.R.anim.right_in, com.netease.nim.uikit.R.anim.right_out);
+                    overridePendingTransition(R.anim.right_in, R.anim.right_out);
                     break;
                 case TOP:
-                    overridePendingTransition(com.netease.nim.uikit.R.anim.top_in, com.netease.nim.uikit.R.anim.top_out);
+                    overridePendingTransition(R.anim.top_in, R.anim.top_out);
                     break;
                 case BOTTOM:
-                    overridePendingTransition(com.netease.nim.uikit.R.anim.bottom_in, com.netease.nim.uikit.R.anim.bottom_out);
+                    overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
                     break;
                 case SCALE:
-                    overridePendingTransition(com.netease.nim.uikit.R.anim.scale_in, com.netease.nim.uikit.R.anim.scale_out);
+                    overridePendingTransition(R.anim.scale_in, R.anim.scale_out);
                     break;
                 case FADE:
-                    overridePendingTransition(com.netease.nim.uikit.R.anim.fade_in, com.netease.nim.uikit.R.anim.fade_out);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     break;
                 case NONE:
                     overridePendingTransition(0, 0);
