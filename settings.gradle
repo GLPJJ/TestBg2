@@ -1,1 +1,1 @@
-include ':app', ':uikit-release'
+include ':app'

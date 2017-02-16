@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId "com.example.administrator.testbg2"
@@ -27,5 +27,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'me.imid.swipebacklayout.lib:library:1.0.0'
-    compile project(':uikit-release')
+//    compile project(':uikit-release')
 }
