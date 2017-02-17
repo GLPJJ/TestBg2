@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.administrator.testbg">
+          package="com.example.administrator.testbg">
 
     <application
         android:allowBackup="true"
@@ -9,22 +9,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeDay.Translucent">
         <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppThemeDay.Translucent.Welcome"
-            >
+            android:name=".ui.MainActivity"
+            android:theme="@style/AppThemeDay.Translucent.Welcome">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
-            android:name=".Main2Activity"
+            android:name=".ui.Main2Activity"
             android:theme="@style/AppThemeDay.NoneTranslucent.Main"
-            android:windowSoftInputMode="stateHidden"
-            />
-        <activity android:name=".Main3Activity"></activity>
-        <activity android:name=".Main4Activity"></activity>
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".ui.Main3Activity"/>
+        <activity android:name=".ui.Main4Activity"/>
+        <activity android:name=".ui.KeyBoardActivity">
+        </activity>
     </application>
 
 </manifest>

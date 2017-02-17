@@ -1,9 +1,11 @@
-package com.example.administrator.testbg;
+package com.example.administrator.testbg.ui;
 
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.example.administrator.testbg.R;
 
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
 import me.imid.swipebacklayout.lib.Utils;

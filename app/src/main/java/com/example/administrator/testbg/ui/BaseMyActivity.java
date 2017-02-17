@@ -1,4 +1,4 @@
-package com.example.administrator.testbg;
+package com.example.administrator.testbg.ui;
 
 /**
  * Created by Administrator on 2016/9/9.

@@ -1,9 +1,11 @@
-package com.example.administrator.testbg;
+package com.example.administrator.testbg.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
+
+import com.example.administrator.testbg.R;
 
 //启动页
 public class MainActivity extends BaseMyActivity {
@@ -50,7 +52,7 @@ public class MainActivity extends BaseMyActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0)
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0)
             return true;
 
         return super.onKeyDown(keyCode, event);

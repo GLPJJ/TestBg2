@@ -1,8 +1,10 @@
-package com.example.administrator.testbg;
+package com.example.administrator.testbg.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.administrator.testbg.R;
 
 //分页1
 public class Main3Activity extends BaseMyActivity {
