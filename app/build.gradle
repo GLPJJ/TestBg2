@@ -102,7 +102,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     //    compile project(':uikit-release')
     compile 'com.android.support:appcompat-v7:24.2.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha3'
+//    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha3'
 
     //通用库 begin
     compile 'me.imid.swipebacklayout.lib:library:1.0.0'                 //左滑退出Activity
