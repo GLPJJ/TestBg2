@@ -11,17 +11,18 @@
         <activity
             android:name=".ui.MainActivity"
             android:theme="@style/AppThemeDay.Translucent.Welcome">
+        </activity>
+        <activity
+            android:name=".ui.Main2Activity"
+            android:theme="@style/AppThemeDay.NoneTranslucent.Main"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".ui.Main3Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.Main2Activity"
-            android:theme="@style/AppThemeDay.NoneTranslucent.Main"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".ui.Main3Activity"/>
         <activity android:name=".ui.Main4Activity"/>
         <activity android:name=".ui.KeyBoardActivity">
         </activity>

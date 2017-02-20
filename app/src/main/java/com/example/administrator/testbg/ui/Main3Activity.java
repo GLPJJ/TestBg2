@@ -13,6 +13,7 @@ public class Main3Activity extends BaseMyActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
+        setSwipeBackEnable(false);
     }
 
     public void onGo(View v) {
