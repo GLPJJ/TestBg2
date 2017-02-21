@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.administrator.testbg.R;
-import com.example.administrator.testbg.ui.view.KeyBackObservableEditText;
+import simple.view.KeyBackObservableEditText;
 
 
 public class KeyBoardActivity extends BaseMyActivity {

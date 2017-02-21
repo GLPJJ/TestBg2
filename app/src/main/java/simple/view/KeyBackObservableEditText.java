@@ -1,4 +1,4 @@
-package com.example.administrator.testbg.ui.view;
+package simple.view;
 
 /**
  * Created by glp on 2016/10/21.

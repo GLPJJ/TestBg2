@@ -19,4 +19,7 @@
     <string name="time_hour_ago">%d小时前</string>
     <string name="minutes">分钟</string>
     <string name="hour">小时</string>
+    <string name="loading">载入中...</string>
+    <string name="error_try_again">获取失败，点击重新获取</string>
+    <string name="no_connection_try_again">网络连接错误，请重试</string>
 </resources>

@@ -72,10 +72,6 @@
             android:theme="@style/AppThemeDay.Translucent.Welcome">
         </activity>
         <activity
-            android:name=".ui.Main2Activity"
-            android:theme="@style/AppThemeDay.NoneTranslucent.Main"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity
             android:name=".ui.activity.Main2Activity"
             android:theme="@style/AppThemeDay.NoneTranslucent.Main"
             android:windowSoftInputMode="stateHidden"/>

@@ -28,7 +28,7 @@
             android:weightSum="101"
             >
 
-            <com.example.administrator.testbg.ui.view.KeyBackObservableEditText
+            <simple.view.KeyBackObservableEditText
                 android:id="@+id/edit"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
