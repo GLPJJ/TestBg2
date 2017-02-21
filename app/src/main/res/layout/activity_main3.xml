@@ -30,8 +30,11 @@
         <simple.view.RangeSeekbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:rangeDrawable="@drawable/progress_bg"
+            app:drawable_progress="@drawable/progress_bg"
+            app:drawable_range="@drawable/progress_range"
             app:thumb="@mipmap/person"
+            app:thumb_second="@mipmap/game_chip_thumb"
+            app:max="10"
             />
 
         <SeekBar

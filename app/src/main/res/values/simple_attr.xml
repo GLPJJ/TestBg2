@@ -5,9 +5,15 @@
 
     <declare-styleable name="RangeSeekbar">
         <attr name="thumb" format="reference"/>
-        <attr name="rangeDrawable" format="reference"/>
+        <attr name="thumb_second" format="reference"/>
+        <attr name="drawable_progress" format="reference"/>
+        <attr name="drawable_range" format="reference"/>
+        <attr name="dot_visible" format="boolean"/>
+        <attr name="dot_radius" format="dimension"/>
         <attr name="max" format="integer"/>
         <attr name="progress"/>
+        <attr name="progress_second" format="integer"/>
+        <attr name="progress_height" format="dimension"/>
     </declare-styleable>
 
     <declare-styleable name="SwitchButton">
@@ -446,34 +452,34 @@
 
     <declare-styleable name="PhasedSeekBar">
         <attr name="phased_mode">
-            <enum name="horizontal" value="1" />
-            <enum name="vertical" value="2" />
+            <enum name="horizontal" value="1"/>
+            <enum name="vertical" value="2"/>
         </attr>
-        <attr name="phased_base_margin_left" format="dimension|reference" />
-        <attr name="phased_base_margin_right" format="dimension|reference" />
-        <attr name="phased_base_margin_top" format="dimension|reference" />
-        <attr name="phased_base_margin_bottom" format="dimension|reference" />
-        <attr name="phased_base_background" format="color|reference" />
-        <attr name="phased_item_width" format="dimension|reference" />
-        <attr name="phased_item_height" format="dimension|reference" />
-        <attr name="phased_anchor_width" format="dimension|reference" />
-        <attr name="phased_anchor_height" format="dimension|reference" />
-        <attr name="phased_draw_on_off" format="boolean" />
-        <attr name="phased_fix_point" format="boolean" />
+        <attr name="phased_base_margin_left" format="dimension|reference"/>
+        <attr name="phased_base_margin_right" format="dimension|reference"/>
+        <attr name="phased_base_margin_top" format="dimension|reference"/>
+        <attr name="phased_base_margin_bottom" format="dimension|reference"/>
+        <attr name="phased_base_background" format="color|reference"/>
+        <attr name="phased_item_width" format="dimension|reference"/>
+        <attr name="phased_item_height" format="dimension|reference"/>
+        <attr name="phased_anchor_width" format="dimension|reference"/>
+        <attr name="phased_anchor_height" format="dimension|reference"/>
+        <attr name="phased_draw_on_off" format="boolean"/>
+        <attr name="phased_fix_point" format="boolean"/>
     </declare-styleable>
 
     <declare-styleable name="SpringView">
         <attr name="type">
-            <enum name="overlap" value="0" />
-            <enum name="follow" value="1" />
+            <enum name="overlap" value="0"/>
+            <enum name="follow" value="1"/>
         </attr>
         <attr name="give">
-            <enum name="both" value="0" />
-            <enum name="top" value="1" />
-            <enum name="bottom" value="2" />
-            <enum name="none" value="3" />
+            <enum name="both" value="0"/>
+            <enum name="top" value="1"/>
+            <enum name="bottom" value="2"/>
+            <enum name="none" value="3"/>
         </attr>
-        <attr name="header" format="reference" />
-        <attr name="footer" format="reference" />
+        <attr name="header" format="reference"/>
+        <attr name="footer" format="reference"/>
     </declare-styleable>
 </resources>
