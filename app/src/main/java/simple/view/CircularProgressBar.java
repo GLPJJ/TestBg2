@@ -14,6 +14,8 @@ import android.view.animation.DecelerateInterpolator;
 
 import com.example.administrator.testbg.R;
 
+import simple.util.til.ToolUtil;
+
 /**
  * 环形进度
  */
@@ -21,8 +23,8 @@ public class CircularProgressBar extends View {
     // Properties
     private float progress = 0;
     private float secondProgress = 0;
-    private float strokeWidth = getResources().getDimension(R.dimen.default_stroke_width);
-    private float backgroundStrokeWidth = getResources().getDimension(R.dimen.default_background_stroke_width);
+    private float strokeWidth = ToolUtil.Dp2Px(9);
+    private float backgroundStrokeWidth = ToolUtil.Dp2Px(10);
     private int color = Color.BLACK;
     private int secondColor = Color.BLACK;
     private int backgroundColor = Color.GRAY;

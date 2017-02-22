@@ -15,6 +15,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.administrator.testbg.R;
+
+import simple.util.til.ToolUtil;
 import simple.view.KeyBackObservableEditText;
 
 
@@ -260,7 +262,7 @@ public class KeyBoardActivity extends BaseMyActivity {
 
         int curY = pos[1] + control.getHeight();//当前view的底部高度
 
-        int curYAdd = curY + getResources().getDimensionPixelSize(R.dimen.session_bottom_control_height);
+        int curYAdd = curY + (int)(ToolUtil.Dp2Px(240));
         Log.i("MainActivity", "mWindowY=" + mWindowY + ",curY=" + curY + ",curYAdd=" + curYAdd
                 + (isPlaceHolderVisible() ? ",placeholder visible" : ",placeholder invisible"));
         if ((curY < mWindowY && !isPlaceHolderVisible())
