@@ -119,8 +119,8 @@ public class DateTools {
                     } else if (tDate.after(beforeYes) && tDate.before(yesterday)) {
                         display = ToolUtil.GetString(R.string.yesterday);
                     } else {
-                        SimpleDateFormat halfDf = new SimpleDateFormat("dd" + ToolUtil.GetString(R.string.day));
-                        display = halfDf.format(tDate);
+                        SimpleDateFormat halfDf = new SimpleDateFormat("dd");
+                        display = halfDf.format(tDate) + ToolUtil.GetString(R.string.day);
                     }
                 }
             } catch (Throwable e) {

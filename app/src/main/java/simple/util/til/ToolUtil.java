@@ -96,11 +96,11 @@ public class ToolUtil {
 
     /**
      * 名称规则
-     * 支持1.中英文 2.特殊字符 3.空格
+     * 支持1.中英文 2.特殊字符 3.空格 4 ' 点号
      */
     public static class NameRuleFilter implements InputFilter {
         private final static String TAG = "NameRuleFilter";
-        private final String reg = "^[A-Za-z0-9\\u4e00-\\u9fa5\\x20\\x5f\\x09]*$";
+        private final String reg = "^['A-Za-z0-9\\u4e00-\\u9fa5\\x20\\x5f\\x09]*$";
 
         @Override
         public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
@@ -124,7 +124,7 @@ public class ToolUtil {
     public static class NoSpaceAndEnterInputFilter implements InputFilter {
         @Override
         public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-            if (source.equals(" ") || source.toString().matches("\\n")) { // for backspace
+            if (/*source.equals(" ") || */source.toString().indexOf("\n") != -1) { // for backspace
                 return "";
             }
             return source;
@@ -517,8 +517,12 @@ public class ToolUtil {
     }
 
     public static int Dp2Px(float dipValue) {
-        final float scale = Simple.Context.getResources().getDisplayMetrics().density;
-        return (int) (dipValue * scale + 0.5f);
+        if (Simple.Context != null) {
+            final float scale = Simple.Context.getResources().getDisplayMetrics().density;
+            return (int) (dipValue * scale + 0.5f);
+        } else {
+            return (int) (dipValue * 2 + 0.5f);
+        }
     }
 
     public static int Px2Dp(float pxValue) {
@@ -526,11 +530,25 @@ public class ToolUtil {
         return (int) (pxValue / scale + 0.5f);
     }
 
+    /**
+     * 似乎 setTextSize，自带转换文字大小
+     *
+     * @param pxValue
+     * @return
+     */
+    @Deprecated
     public static int Px2Sp(float pxValue) {
         final float fontScale = Simple.Context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (pxValue / fontScale + 0.5f);
     }
 
+    /**
+     * 似乎 setTextSize，自带转换文字大小
+     *
+     * @param sp
+     * @return
+     */
+    @Deprecated
     public static int Sp2Px(float sp) {
         final float fontScale = Simple.Context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (sp * fontScale + 0.5f);

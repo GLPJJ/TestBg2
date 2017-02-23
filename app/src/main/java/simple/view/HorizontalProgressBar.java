@@ -47,7 +47,7 @@ public class HorizontalProgressBar extends ProgressBar {
         objectAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                int progress = (int) ((float) animation.getAnimatedValue());
+                int progress = (int) animation.getAnimatedValue();
                 if (getProgress() != progress) {
                     setProgress(progress);
                 }
@@ -63,7 +63,7 @@ public class HorizontalProgressBar extends ProgressBar {
         objectAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
-                int progress = (int) ((float) animation.getAnimatedValue());
+                int progress = (int) animation.getAnimatedValue();
                 if (getProgress() != progress) {
                     setProgress(progress);
                 }

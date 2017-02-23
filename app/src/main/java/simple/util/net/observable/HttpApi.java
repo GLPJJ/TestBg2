@@ -104,7 +104,7 @@ public class HttpApi {
 //        return retrofit;
 //    }
 
-    static Cache GetHttpCatch() {
+    static Cache GetHttpCache() {
         if (sCache == null)
             sCache = new Cache(AppDirUtil.getTempCacheDirFile(), DEFAULT_CACHE_FILESIZE);
         return sCache;
@@ -165,7 +165,7 @@ public class HttpApi {
 
         //同步 OKHttp
         OkHttpClient client = new OkHttpClient.Builder()
-                .cache(GetHttpCatch())
+                .cache(GetHttpCache())
                 .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 //.writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
                 //.readTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
@@ -228,7 +228,7 @@ public class HttpApi {
             }
         }
 
-        LogUtil.i(Tag, "URL=" + url + ";Param=" + builder.getParams().toString());
+        LogUtil.i(Tag, "URL=" + url + "  ;  Param=" + builder.getParams().toString());
 
         Request request = requestBuilder.build();
         Response response;
@@ -297,7 +297,7 @@ public class HttpApi {
                             retStr = BuildResponseData(HttpURLConnection.HTTP_NOT_FOUND);
                         }
 
-                        LogUtil.i(Tag, "URL=" + url + ";ResponseBody=" + retStr);
+                        LogUtil.i(Tag, "URL=" + url + "  ;  ResponseBody=" + retStr);
                     }
                 }
             } else if (call.isCanceled()) {
