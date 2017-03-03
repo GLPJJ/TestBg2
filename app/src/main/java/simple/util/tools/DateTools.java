@@ -183,6 +183,14 @@ public class DateTools {
         return GetStrSecondFmt(cc_time, "yyyy");
     }
 
+    public static String getStrTime_m(long cc_time) {
+        return GetStrSecondFmt(cc_time, "MM");
+    }
+
+    public static String getStrTime_d(long cc_time) {
+        return GetStrSecondFmt(cc_time, "dd");
+    }
+
     public static String getStrTime_md(long cc_time) {
         return GetStrSecondFmt(cc_time, "MM-dd");
     }

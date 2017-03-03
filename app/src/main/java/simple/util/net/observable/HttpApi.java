@@ -509,11 +509,23 @@ public class HttpApi {
             return this.param(key, value ? "1" : "0");
         }
 
+
         /**
          * 构建网络请求，异步返回 结果被观察者(只含有结果Code)
          *
          * @param action0
          * @return
+         */
+        public Observable<CommonBean> buildForCodeInMain(@Nullable Action0 action0) {
+            return buildForCode(action0).observeOn(AndroidSchedulers.mainThread());
+        }
+
+        /**
+         * 构建网络请求，异步返回 结果被观察者(只含有结果Code)
+         *
+         * @param action0
+         * @return
+         * @注意， 如需要在主线程返回结果使用 {@link this#buildForCodeInMain(Action0)}
          */
         public Observable<CommonBean> buildForCode(@Nullable Action0 action0) {
             return GetNetObservable(this, action0)
@@ -522,8 +534,7 @@ public class HttpApi {
                         public CommonBean call(String s) {
                             return Simple.Code.getCom(s);
                         }
-                    })
-                    .observeOn(AndroidSchedulers.mainThread());
+                    });
         }
 
         /**

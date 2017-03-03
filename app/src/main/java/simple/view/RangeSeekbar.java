@@ -12,11 +12,11 @@ import android.view.View;
 
 import com.example.administrator.testbg.R;
 
-/**
- * Created by Administrator on 2017/2/20.
- */
+import simple.util.til.ToolUtil;
 
-public class RangeSeekbar extends View {
+/**
+ */
+public class RangeSeekBar extends View {
 
     static final String TAG = "RangeSeekbar";
 
@@ -43,15 +43,15 @@ public class RangeSeekbar extends View {
     int mDotUnitW;//结点之间的距离
     int mThumbFloatW;//拇指移动范围长度
 
-    public RangeSeekbar(Context context) {
+    public RangeSeekBar(Context context) {
         this(context, null);
     }
 
-    public RangeSeekbar(Context context, @Nullable AttributeSet attrs) {
+    public RangeSeekBar(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public RangeSeekbar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public RangeSeekBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initAttr(context, attrs, defStyleAttr);
     }
@@ -59,26 +59,26 @@ public class RangeSeekbar extends View {
     void initAttr(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         if (attrs != null) {
             TypedArray a = context.obtainStyledAttributes(attrs
-                    , R.styleable.RangeSeekbar, defStyleAttr, 0);
+                    , R.styleable.RangeSeekBar, defStyleAttr, 0);
             try {
-                mDrawableThumb = a.getDrawable(R.styleable.RangeSeekbar_thumb);
-                mDrawableThumbSecond = a.getDrawable(R.styleable.RangeSeekbar_thumb_second);
-                mDrawableProgress = a.getDrawable(R.styleable.RangeSeekbar_drawable_progress);
-                mDrawableRange = a.getDrawable(R.styleable.RangeSeekbar_drawable_range);
-                mMax = Math.max(1, a.getInt(R.styleable.RangeSeekbar_max, 100));
-                mProgress = Math.min(mMax, Math.max(0, a.getInt(R.styleable.RangeSeekbar_progress, 0)));
+                mDrawableThumb = a.getDrawable(R.styleable.RangeSeekBar_thumb);
+                mDrawableThumbSecond = a.getDrawable(R.styleable.RangeSeekBar_thumb_second);
+                mDrawableProgress = a.getDrawable(R.styleable.RangeSeekBar_drawable_progress);
+                mDrawableRange = a.getDrawable(R.styleable.RangeSeekBar_drawable_range);
+                mMax = Math.max(1, a.getInt(R.styleable.RangeSeekBar_max, 100));
+                mProgress = Math.min(mMax, Math.max(0, a.getInt(R.styleable.RangeSeekBar_progress, 0)));
                 mProgressSecond = Math.max(mProgress, Math.min(mMax, Math.max(0
-                        , a.getInt(R.styleable.RangeSeekbar_progress_second, mMax))));
-//                int defPH = ToolUtil.Dp2Px(10);
-                mProgressHeight = Math.max(10, a.getDimensionPixelSize(R.styleable.RangeSeekbar_progress_height
-                        , 10));
+                        , a.getInt(R.styleable.RangeSeekBar_progress_second, mMax))));
+                int defPH = ToolUtil.Dp2Px(4);
+                mProgressHeight = Math.max(defPH, a.getDimensionPixelSize(R.styleable.RangeSeekBar_progress_height
+                        , defPH));
 
                 mThumbW = mDrawableThumb == null ? 0 : mDrawableThumb.getIntrinsicWidth();
                 mHeight = Math.max(mProgressHeight * 6, mThumbW);
 
-//                int defDD = ToolUtil.Dp2Px(15);
-                mDotRadius = Math.max(12, a.getDimensionPixelSize(R.styleable.RangeSeekbar_dot_radius, 12));
-                mShowDot = a.getBoolean(R.styleable.RangeSeekbar_dot_visible, true);
+                int defDD = ToolUtil.Dp2Px(8);
+                mDotRadius = Math.max(defDD, a.getDimensionPixelSize(R.styleable.RangeSeekBar_dot_radius, defDD));
+                mShowDot = a.getBoolean(R.styleable.RangeSeekBar_dot_visible, true);
 
 
             } finally {

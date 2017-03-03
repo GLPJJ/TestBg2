@@ -87,6 +87,6 @@ public class BaseTools {
         String country = locale.getCountry();
         String languageCountry = language + "-" + country;
         LogUtil.d("getLanguage", languageCountry);
-        return languageCountry;
+        return language;
     }
 }

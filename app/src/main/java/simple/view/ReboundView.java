@@ -17,6 +17,8 @@ import android.widget.OverScroller;
 
 import com.example.administrator.testbg.R;
 
+import simple.util.tools.LogUtil;
+
 /**
  */
 public class ReboundView extends ViewGroup {
@@ -32,6 +34,9 @@ public class ReboundView extends ViewGroup {
     private boolean isFullEnable = false;   //是否超过一屏时才允许上拉，为false则不满一屏也可以上拉，注意样式为isOverlap时，无论如何也不允许在不满一屏时上拉
     private boolean isMoveNow = false;       //当前是否正在拖动
     private long lastMoveTime;
+
+    boolean mIsNeedChangeToFalse = false;
+    boolean mIsTouch = false;
 
     private int MOVE_TIME = 400;
     private int MOVE_TIME_OVER = 200;
@@ -102,23 +107,30 @@ public class ReboundView extends ViewGroup {
 
     OnReboundScrollClick mOnReboundScrollClick;
 
-    public void setOnReboundScrollClick(OnReboundScrollClick mOnReboundScrollClick){
+    public void setOnReboundScrollClick(OnReboundScrollClick mOnReboundScrollClick) {
         this.mOnReboundScrollClick = mOnReboundScrollClick;
     }
 
-    public interface OnReboundScrollClick{
+    public interface OnReboundScrollClick {
         public void onClick();
     }
 
     boolean canScroll = false;//是否可以拖动
 
-    public void setCanScroll(boolean canScroll){
+    public void setCanScroll(boolean canScroll) {
         this.canScroll = canScroll;
     }
 
     public boolean isAnimation = false;
 
-    public void setAnimation(boolean isAnimation){
+    public void setAnimation(boolean isAnimation) {
+        if (!this.isAnimation && isAnimation) {//如果关闭动画了，那么还有一次touchup事件，我们不能相应该touch
+            mIsNeedChangeToFalse = true;
+        } else if (!isAnimation && this.isAnimation && !mIsTouch) {
+            mIsNeedChangeToFalse = false;
+        }
+        LogUtil.i(TAG, "setAnimation isAnimation = " + String.valueOf(isAnimation) + ",this.isAnimation=" + String.valueOf(this.isAnimation)
+                + ",mIsNeedChangeToFalse=" + String.valueOf(mIsNeedChangeToFalse));
         this.isAnimation = isAnimation;
     }
 
@@ -131,11 +143,6 @@ public class ReboundView extends ViewGroup {
     public interface ScrollViewListener {
         void onScrollChanged(int moveY);
     }
-
-
-
-
-
 
     private int headerResoureId;
     private int footerResoureId;
@@ -234,14 +241,18 @@ public class ReboundView extends ViewGroup {
             //不能拖动
 //            setLayoutTop();
             return onTouchEvent(event);
+        } else if (isAnimation) {
+            LogUtil.i(TAG, "dispatchTouchEvent");
+            return false;
         }
+
         dealMulTouchEvent(event);
         int action = event.getAction();
         switch (action) {
             case MotionEvent.ACTION_DOWN:
                 mfirstY = event.getY();
                 boolean isTop = isChildScrollToTop();
-                boolean isBottom = isChildScrollToBottomFull(isFullEnable);
+                boolean isBottom = isChildScrollToBottomFull();
                 if (isTop || isBottom) isNeedMyMove = false;
                 break;
             case MotionEvent.ACTION_MOVE:
@@ -249,7 +260,7 @@ public class ReboundView extends ViewGroup {
                 isMoveNow = true;
                 isNeedMyMove = isNeedMyMove(dy);
 
-                if(scrollViewListener != null && isNeedMyMove) {
+                if (scrollViewListener != null && isNeedMyMove) {
                     scrollViewListener.onScrollChanged((int) dsY);
                 }
 
@@ -286,16 +297,37 @@ public class ReboundView extends ViewGroup {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+
+        LogUtil.i(TAG, String.format("onTouchEvent action=%d", event.getAction()));
+
+        int action = event.getAction();
+        if (action == MotionEvent.ACTION_DOWN) {
+            LogUtil.i(TAG, "ACTION_DOWN touch set true");
+            mIsTouch = true;
+        } else if (action == MotionEvent.ACTION_UP) {
+            LogUtil.i(TAG, "ACTION_CANCEL touch set false");
+            mIsTouch = false;
+
+            if (isAnimation)
+                mIsNeedChangeToFalse = false;
+        }
+
         if (contentView == null) {
             return false;
         }
-        if(isAnimation){
-            return true;
+        if (isAnimation) {
+            LogUtil.i(TAG, "onTouchEvent false");
+//            isAnimation = false;
+            return false;
+        } else if (mIsNeedChangeToFalse && event.getAction() == MotionEvent.ACTION_UP) {
+            LogUtil.i(TAG, "mIsNeedChangeToFalse false");
+            mIsNeedChangeToFalse = false;
+            return false;
         }
         float yDown = 0;
         float yUp = 0;
         float yMove = 0;
-        int action = event.getAction();
+
         switch (action) {
             case MotionEvent.ACTION_DOWN:
                 isFirst = true;
@@ -307,7 +339,7 @@ public class ReboundView extends ViewGroup {
                 if (isNeedMyMove) {
                     needResetAnim = false;      //按下的时候关闭回弹
                     //执行位移操作
-                    if(canScroll) {
+                    if (canScroll) {
                         doMove();
                     }
                     //下拉的时候显示header并隐藏footer，上拉的时候相反
@@ -352,9 +384,11 @@ public class ReboundView extends ViewGroup {
                 dy = 0;
                 break;
             case MotionEvent.ACTION_CANCEL:
+
                 break;
         }
-        if(!canScroll) {
+
+        if (!canScroll) {
             if (mOnReboundScrollClick != null && event.getAction() == MotionEvent.ACTION_UP) {
                 mOnReboundScrollClick.onClick();
             }
@@ -362,7 +396,6 @@ public class ReboundView extends ViewGroup {
         } else {
             return super.onTouchEvent(event);
         }
-//        return true;
     }
 
     /**
@@ -383,7 +416,7 @@ public class ReboundView extends ViewGroup {
             }
             case MotionEvent.ACTION_MOVE: {
                 final int pointerIndex = MotionEventCompat.findPointerIndex(ev, mActivePointerId);
-                if(pointerIndex != -1){//处理可能得到-1 引起崩溃
+                if (pointerIndex != -1) {//处理可能得到-1 引起崩溃
                     final float y = MotionEventCompat.getY(ev, pointerIndex);
                     dy = y - mLastY;
                     mLastY = y;
@@ -549,7 +582,7 @@ public class ReboundView extends ViewGroup {
             return false;
         }
         boolean isTop = isChildScrollToTop();
-        boolean isBottom = isChildScrollToBottomFull(isFullEnable);     //false不满一屏也算在底部，true不满一屏不算在底部
+        boolean isBottom = isChildScrollToBottomFull();     //false不满一屏也算在底部，true不满一屏不算在底部
         if (type == Type.OVERLAP) {
             if (header != null) {
                 if (isTop && dy > 0 || contentView.getTop() > 0 + 20) {
@@ -558,10 +591,6 @@ public class ReboundView extends ViewGroup {
             }
             if (footer != null) {
                 if (isBottom && dy < 0 || contentView.getBottom() < mRect.bottom - 20) {
-//                    if (isFullScrean()&&!isFullEnable)
-//                        return true;
-//                    else
-//                        return false;
                     return true;
                 }
             }
@@ -660,7 +689,7 @@ public class ReboundView extends ViewGroup {
         //mRect.setEmpty();
     }
 
-    public void resetFirstPosition(){
+    public void resetFirstPosition() {
     }
 
     private void callOnFinishAnim() {
@@ -794,18 +823,6 @@ public class ReboundView extends ViewGroup {
      * @return
      */
     private boolean isChildScrollToTop() {
-//        if (android.os.Build.VERSION.SDK_INT < 14) {
-//            if (contentView instanceof AbsListView) {
-//                final AbsListView absListView = (AbsListView) contentView;
-//                return !(absListView.getChildCount() > 0 && (absListView
-//                        .getFirstVisiblePosition() > 0 || absListView
-//                        .getChildAt(0).getTop() < absListView.getPaddingTop()));
-//            } else {
-//                return !(contentView.getScrollY() > 0);
-//            }
-//        } else {
-//            return !ViewCompat.canScrollVertically(contentView, -1);
-//        }
         return !ViewCompat.canScrollVertically(contentView, -1);
     }
 
@@ -814,79 +831,8 @@ public class ReboundView extends ViewGroup {
      *
      * @return
      */
-    private boolean isChildScrollToBottomFull(boolean isFull) {
-//        if (isFull){
-//            if (isChildScrollToTop()) {
-//                return false;
-//            }
-//        }
-//        if (contentView instanceof RecyclerView) {
-//            RecyclerView recyclerView = (RecyclerView) contentView;
-//            RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
-//            int count = recyclerView.getAdapter().getItemCount();
-//            if (layoutManager instanceof LinearLayoutManager && count > 0) {
-//                LinearLayoutManager linearLayoutManager = (LinearLayoutManager) layoutManager;
-//                if (linearLayoutManager.findLastCompletelyVisibleItemPosition() == count - 1) {
-//                    return true;
-//                }
-//            } else if (layoutManager instanceof StaggeredGridLayoutManager) {
-//                StaggeredGridLayoutManager staggeredGridLayoutManager = (StaggeredGridLayoutManager) layoutManager;
-//                int[] lastItems = new int[2];
-//                staggeredGridLayoutManager.findLastCompletelyVisibleItemPositions(lastItems);
-//                int lastItem = Math.max(lastItems[0], lastItems[1]);
-//                if (lastItem == count - 1) {
-//                    return true;
-//                }
-//            }
-//            return false;
-//        } else if (contentView instanceof AbsListView) {
-//            final AbsListView absListView = (AbsListView) contentView;
-//            final Adapter adapter = absListView.getAdapter();
-//            if (null == adapter || adapter.isEmpty()) {
-//                return true;
-//            }
-//            final int lastItemPosition = adapter.getCount() - 1;
-//            final int lastVisiblePosition = absListView.getLastVisiblePosition();
-//            if (lastVisiblePosition >= lastItemPosition - 1) {
-//                final int childIndex = lastVisiblePosition - absListView.getFirstVisiblePosition();
-//                final int childCount = absListView.getChildCount();
-//                final int index = Math.max(childIndex, childCount - 1);
-//                final View lastVisibleChild = absListView.getChildAt(index);
-//                if (lastVisibleChild != null) {
-//                    return lastVisibleChild.getBottom() <= absListView.getBottom()-absListView.getTop();
-//                }
-//            }
-//            return false;
-//        } else if (contentView instanceof ScrollView) {
-//            ScrollView scrollView = (ScrollView) contentView;
-//            View view = scrollView.getChildAt(scrollView.getChildCount() - 1);
-//            if (view != null) {
-//                int diff = (view.getBottom() - (scrollView.getHeight() + scrollView.getScrollY()));
-//                if (diff == 0) {
-//                    return true;
-//                }
-//                if(!isFull) {
-//                    //如果scrollView中内容不满一屏，也算在底部
-//                    if (view.getMeasuredHeight() <= scrollView.getMeasuredHeight()) {
-//                        return true;
-//                    }
-//                }
-//            }
-//        }
-//        return false;
+    private boolean isChildScrollToBottomFull() {
         return !ViewCompat.canScrollVertically(contentView, 1);
-    }
-
-    private boolean isChildScrollToBottom() {
-        return isChildScrollToBottomFull(true);
-    }
-
-    private boolean isFullScrean() {
-        boolean isBottom = isChildScrollToBottomFull(false);
-        if (isBottom) {
-            return isChildScrollToBottomFull(true);
-        }
-        return true;
     }
 
     /**

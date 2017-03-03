@@ -17,7 +17,7 @@ import android.content.Context;
  * double	    D
  * void	        V
  * objects对象	Lfully-qualified-class-name;L类名    Ljava/lang/String;
- * Arrays数组	[array-type [数组类型               [I]
+ * Arrays数组	[array-type [数组类型               [I
  * methods方法	(argument-types)return-type(参数类型)返回类型    ()V - 无参数，返回Void
  */
 
