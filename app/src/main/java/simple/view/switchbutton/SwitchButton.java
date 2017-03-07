@@ -21,7 +21,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.CompoundButton;
 
 import com.example.administrator.testbg.R;
-import com.nineoldandroids.animation.ObjectAnimator;
+import android.animation.ObjectAnimator;
 
 
 /**

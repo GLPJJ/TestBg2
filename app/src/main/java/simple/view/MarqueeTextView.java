@@ -1,21 +1,20 @@
 package simple.view;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.animation.LinearInterpolator;
-import android.widget.TextView;
-
-import com.nineoldandroids.animation.Animator;
-import com.nineoldandroids.animation.ObjectAnimator;
 
 import simple.util.til.ToolUtil;
 
 /**
  * 跑马灯效果的TextView
  */
-public class MarqueeTextView extends TextView {
+public class MarqueeTextView extends AppCompatTextView {
     final String TAG = "MarqueeTextView";
     private boolean isStop = false;
     private int textWidth;
