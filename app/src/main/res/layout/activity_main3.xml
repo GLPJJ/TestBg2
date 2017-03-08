@@ -13,6 +13,7 @@
     >
 
     <Button
+        android:id="@+id/btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="onGo"
@@ -27,7 +28,7 @@
         android:orientation="vertical"
         >
 
-        <simple.view.RangeSeekbar
+        <simple.view.RangeSeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:drawable_progress="@drawable/progress_bg"
