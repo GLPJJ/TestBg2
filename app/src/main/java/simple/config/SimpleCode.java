@@ -172,6 +172,7 @@ public abstract class SimpleCode {
                 if (TextUtils.isEmpty(def))//如果默认是空，那么使用message
                     ret = o.message;
                 break;
+            case CODE_SUCCESS_FROMDB:
             case CODE_GO_END://不需要提示
             case CODE_CANCEL:
                 ret = null;

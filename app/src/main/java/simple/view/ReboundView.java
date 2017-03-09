@@ -254,6 +254,9 @@ public class ReboundView extends ViewGroup {
                 boolean isTop = isChildScrollToTop();
                 boolean isBottom = isChildScrollToBottomFull();
                 if (isTop || isBottom) isNeedMyMove = false;
+
+                //偏移之后响应动画，所以这里需要先赋值上touch事件
+                mIsTouch = true;
                 break;
             case MotionEvent.ACTION_MOVE:
                 dsY += dy;
@@ -277,8 +280,10 @@ public class ReboundView extends ViewGroup {
             case MotionEvent.ACTION_UP:
                 isMoveNow = false;
                 lastMoveTime = System.currentTimeMillis();
+                mIsTouch = false;
                 break;
             case MotionEvent.ACTION_CANCEL:
+                mIsTouch = false;
                 break;
         }
         return super.dispatchTouchEvent(event);
@@ -298,13 +303,14 @@ public class ReboundView extends ViewGroup {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        LogUtil.i(TAG, String.format("onTouchEvent action=%d", event.getAction()));
+        if (event.getAction() != 2)
+            LogUtil.i(TAG, String.format("onTouchEvent action=%d", event.getAction()));
 
         int action = event.getAction();
         if (action == MotionEvent.ACTION_DOWN) {
             LogUtil.i(TAG, "ACTION_DOWN touch set true");
             mIsTouch = true;
-        } else if (action == MotionEvent.ACTION_UP) {
+        } else if (action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_CANCEL) {
             LogUtil.i(TAG, "ACTION_CANCEL touch set false");
             mIsTouch = false;
 

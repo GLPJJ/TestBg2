@@ -56,7 +56,7 @@ public class EventLinearLayout extends LinearLayout {
             //如果输入框可用，或者点击了图片
             if (mEditText.isEnabled() || ToolUtil.IsMotionEventInView(ev, mImageView))
                 return false;
-            return true;
+            return true;//否则拦截事件，我们自己需要响应变化颜色
         }
 
         return super.onInterceptTouchEvent(ev);
