@@ -7,10 +7,10 @@ import simple.config.Simple;
 /**
  */
 public class LogUtil {
-    public static final boolean LOG = true;
 
     public static int d(String tag, String msg) {
-        if (Simple.Config.isLogOpen() && !TextUtils.isEmpty(tag) && !TextUtils.isEmpty(msg)) {
+        if ((Simple.Config != null && Simple.Config.isLogOpen() || Simple.Config == null)
+                && !TextUtils.isEmpty(tag) && !TextUtils.isEmpty(msg)) {
             return android.util.Log.d(tag, msg);
         } else {
             return -1;
@@ -18,7 +18,8 @@ public class LogUtil {
     }
 
     public static int i(String tag, String msg) {
-        if (Simple.Config.isLogOpen() && !TextUtils.isEmpty(tag) && !TextUtils.isEmpty(msg)) {
+        if ((Simple.Config != null && Simple.Config.isLogOpen() || Simple.Config == null)
+                && !TextUtils.isEmpty(tag) && !TextUtils.isEmpty(msg)) {
             return android.util.Log.i(tag, msg);
         } else {
             return -1;

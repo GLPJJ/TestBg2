@@ -12,36 +12,84 @@
                 tools:context="com.example.administrator.testbg.ui.activity.Main3Activity"
     >
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onGo"
-        android:text="3"
-        />
-
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         >
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onGo"
+            android:text="3"
+            />
+
+        <Button
+            android:id="@+id/btn_go"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onGo1"
+            android:text="go"
+            />
 
         <simple.view.RangeSeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:drawable_progress="@drawable/progress_bg"
             app:drawable_range="@drawable/progress_range"
+            app:max="10"
             app:thumb="@mipmap/person"
             app:thumb_second="@mipmap/game_chip_thumb"
-            app:max="10"
             />
 
         <SeekBar
             android:id="@+id/seekBar3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
+        <com.example.administrator.testbg.ui.view.CustomFrameLayout
+            android:layout_width="350dp"
+            android:layout_height="400dp"
+            android:background="#ff0000"
+            android:contentDescription="1"
+            >
+
+            <com.example.administrator.testbg.ui.view.CustomFrameLayout
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:background="#00ff00"
+                android:contentDescription="2"
+                >
+
+                <com.example.administrator.testbg.ui.view.CustomView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:background="#ff00ff"
+                    android:contentDescription="3"
+                    />
+
+                <com.example.administrator.testbg.ui.view.CustomView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="50dp"
+                    android:background="#0000ff"
+                    android:contentDescription="4"
+                    />
+
+            </com.example.administrator.testbg.ui.view.CustomFrameLayout>
+
+            <com.example.administrator.testbg.ui.view.CustomView
+                android:layout_width="200dp"
+                android:layout_height="250dp"
+                android:layout_gravity="right|bottom"
+                android:background="#ffff00"
+                android:contentDescription="5"
+                />
+
+        </com.example.administrator.testbg.ui.view.CustomFrameLayout>
 
     </LinearLayout>
 

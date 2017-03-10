@@ -41,6 +41,9 @@ public abstract class SimpleCode {
     public static Action1<Throwable> sErrorDeal = new Action1<Throwable>() {
         @Override
         public void call(Throwable throwable) {
+            if (throwable instanceof ResultException)//如果是我们自己定义的异常，则不需要报错
+                return;
+
             throwable.printStackTrace();
             Simple.Config.reportError("rx42 exception = " + ToolUtil.GetInfoFromThrowable(throwable));
         }

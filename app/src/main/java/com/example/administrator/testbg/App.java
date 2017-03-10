@@ -61,7 +61,7 @@ public class App extends MultiDexApplication {
 
 					@Override
 					public boolean isLogOpen() {
-						return false;
+						return true;
 					}
 
 					@Override
